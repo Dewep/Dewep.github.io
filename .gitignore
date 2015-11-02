@@ -1,0 +1,5 @@
+# Build files
+/_site/
+/.jekyll-metadata
+/Gemfile.lock
+/.sass-cache/
