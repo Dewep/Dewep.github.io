@@ -33,26 +33,26 @@ Nous allons tout d'abord préparer notre linux, créer un utilisateur pour notre
 ### Installation de docker
 
 L'installation de `Docker` peut, pour la plupart du temps, se faire directement depuis les dépôts de votre distribution. Sur `Ubuntu`, ce sera :
-{% highlight shell %}
+{% highlight bash %}
 apt-get install docker.io
 {% endhighlight %}
 
 Si jamais vous ne trouvez pas le packet (ou qu'il n'est tout simplement pas présent sur vos dépôts) :
-{% highlight shell %}
+{% highlight bash %}
 wget -qO- https://get.docker.com/ | sh
 {% endhighlight %}
 
 ### Préparation des répertoires
 
 Créez ensuite un utilisateur `seedbox`, et ajoutez le dans le groupe `docker` (il aura ainsi les droits nécessaires pour gérer les différents `containers` et `images` de `Docker`) :
-{% highlight shell %}
+{% highlight bash %}
 useradd seedbox -m
 passwd seedbox
 gpasswd -a seedbox docker
 {% endhighlight %}
 
 J'ai choisis de mettre les fichiers téléchargés dans le dossier `/home/seedbox/downloads`. Libre à vous de choisir ce que vous préférez, mais n'oubliez pas de changer en conséquence pour les prochaines commandes. Pensez également à autoriser l'écriture dans le dossier pour tout le monde.
-{% highlight shell %}
+{% highlight bash %}
 su seedbox
 mkdir /home/seedbox/downloads
 chmod 777 -R /home/seedbox/downloads
@@ -61,19 +61,19 @@ chmod 777 -R /home/seedbox/downloads
 ## Contrainer Transmission
 
 Démarrer `Docker` si ce n'est pas déjà fait :
-{% highlight shell %}
+{% highlight bash %}
 /etc/init.d/docker.io start
 {% endhighlight %}
 
 Nous allons utiliser une `image Docker` déjà créée pour `Transmission` : [https://registry.hub.docker.com/u/stevenmartins/docker-transmission/].
 
 Pour récupérer cette image sur votre serveur :
-{% highlight shell %}
+{% highlight bash %}
 docker pull stevenmartins/docker-transmission
 {% endhighlight %}
 
 Puis pour exécuter le `container` :
-{% highlight shell %}
+{% highlight bash %}
 docker run -d -p 51413:51413 -p 51413:51413/udp -p 2000:9091 -e TRANSMISSION_PASS=password -v /home/seedbox/downloads:/transmission/downloads --name seedbox stevenmartins/docker-transmission
 {% endhighlight %}
 
@@ -96,7 +96,7 @@ L'identifiant est `transmission` et le mot de passe celui que vous avez envoyé 
 
 Nous allons ensuite mettre en place un serveur web pour accéder à notre dossier `/home/seedbox/downloads` directement depuis le navigateur. Nous allons utiliser `Nginx`, mais il vous est aussi possible de prendre à la place `Apache`, il vous suffira de choisir la bonne image sur le [Hub de Docker?][hub-de-docker].
 
-{% highlight shell %}
+{% highlight bash %}
 docker pull nginx
 {% endhighlight %}
 
@@ -125,7 +125,7 @@ server {
 C'est le fichier de configuration pour `Nginx`. Il affichera les fichiers pour le dossier `/downloads`, écoutera sur le port 80 du `container` et demandera une authentification grâce au fichier `/etc/nginx/conf.d/.htpasswd`.
 
 Il ne nous reste donc plus qu'à relier tous ces paramètres avec notre machine hôte lors du lancement :
-{% highlight shell %}
+{% highlight bash %}
 docker run -p 2001:80 -d -v /home/seedbox/downloads:/downloads:ro -v /home/seedbox/nginx-conf:/etc/nginx/conf.d:ro --name seedbox_nginx nginx
 {% endhighlight %}
 
@@ -154,13 +154,13 @@ Vous pourriez normalement déjà pouvoir y accéder, en `sFTP` (`FTP` en passant
 
 
 Si vous souhaitez tout de même installer un vrai serveur `FTP`, vous pouvez aussi le faire avec une image `Docker` déjà créée (avec `pure-FTPD`) :
-{% highlight shell %}
+{% highlight bash %}
 docker pull stilliard/pure-ftpd
 docker run -d -p 9002:21 -v /home/seedbox/downloads:/downloads:ro --name seedbox_ftp stilliard/pure-ftpd
 {% endhighlight %}
 
 Pour ajouter un nouvel utilisateur, vous aurez besoin de vous connecter au `container` :
-{% highlight shell %}
+{% highlight bash %}
 docker exec -it seedbox_ftp /bin/bash
 #> pure-pw useradd seedbox -u ftpuser -d /downloads
 #> pure-pw mkdb
