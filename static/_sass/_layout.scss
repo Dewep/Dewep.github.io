@@ -5,6 +5,8 @@
 
     a.site-title {
         color: $brand-color-header-logo;
+        text-shadow: 2px 1px 4px $red-color-border;
+        font-weight: bold;
 
         &:visited {
             color: $brand-color-header-logo;
@@ -38,8 +40,8 @@
 
 .page-content {
     .wrapper {
-        border-left: 1px solid #d9d9d9;
-        border-right: 1px solid #d9d9d9;
+        border-left: 1px solid $grey-color-border;
+        border-right: 1px solid $grey-color-border;
         background-color: #fff;
     }
 
@@ -57,9 +59,9 @@
             }
 
             .post-details {
-                color: $grey-color;
+                color: $red-color;//$grey-color;
                 font-size: $small-font-size;
-                border-bottom: 1px solid #d9d9d9;
+                border-bottom: 1px solid $red-color-border;
                 @extend %clearfix;
 
                 .post-meta {

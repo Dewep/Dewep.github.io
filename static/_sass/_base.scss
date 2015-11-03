@@ -82,6 +82,23 @@ li {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
     font-family: $font-family-title;
+    text-shadow: 1px 1px 4px rgba(50,50,50,0.5);
+}
+h2 {
+    margin-top: $spacing-unit;
+    font-weight: 600;
+}
+h3 {
+    margin-top: $spacing-unit / 1.5;
+}
+h4 {
+    margin-top: $spacing-unit / 2;
+}
+h5 {
+    margin-top: $spacing-unit / 2.5;
+}
+h6 {
+    margin-top: $spacing-unit / 3;
 }
 
 
@@ -94,7 +111,7 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: $brand-color;
     }
 
     &:hover {
@@ -140,7 +157,7 @@ code {
 
 pre {
     padding: 8px 12px;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     > code {
         border: 0;
