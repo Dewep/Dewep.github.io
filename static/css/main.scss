@@ -1,28 +1,33 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
 
-
-
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+// BASE
+$font-family: Helvetica, Arial, sans-serif;
+$font-family-title: "Trebuchet MS", $font-family;
+$font-size:   16px;
+$small-font-size:  $font-size * 0.875;
+$line-height: 1.5;
 
 $spacing-unit:     30px;
 
 $text-color:       #111;
-$background-color: #fdfdfd;
+$background-color: #f2f2f2;
 $brand-color:      #2a7ae2;
+
+$text-color-header: #f2f2f2;
+$background-color-header: #202020;
+$brand-color-header:      #9a9a9a;
+$brand-color-header-logo: #ccc;
+
+$background-color-code: #eef;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 $on-palm:          600px;
-$on-laptop:        800px;
+$on-laptop:        1200px;
 
 
 
@@ -39,11 +44,4 @@ $on-laptop:        800px;
     }
 }
 
-
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+@import "base", "layout", "syntax-highlighting";

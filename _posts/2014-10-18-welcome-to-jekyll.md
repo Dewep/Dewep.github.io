@@ -3,6 +3,7 @@ layout: post
 title:  "Welcome to Jekyll!"
 date:   2014-10-18 12:58:29
 categories: jekyll update
+author: "Aurélien Maigret"
 permalink: /Blog/Docker-installer-une-seedbox-Transmission-sur-son-serveur/
 redirect_from: /Blog/Article-31/Docker-installer-une-seedbox-Transmission-sur-son-serveur/
 ---
