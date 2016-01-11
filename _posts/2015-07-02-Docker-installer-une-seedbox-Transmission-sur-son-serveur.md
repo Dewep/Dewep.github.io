@@ -65,7 +65,7 @@ Démarrer `Docker` si ce n'est pas déjà fait :
 /etc/init.d/docker.io start
 {% endhighlight %}
 
-Nous allons utiliser une `image Docker` déjà créée pour `Transmission` : [https://registry.hub.docker.com/u/stevenmartins/docker-transmission/].
+Nous allons utiliser une `image Docker` déjà créée pour `Transmission` : [stevenmartins/docker-transmission][stevenmartins-docker-transmission].
 
 Pour récupérer cette image sur votre serveur :
 {% highlight bash %}
@@ -168,3 +168,4 @@ docker exec -it seedbox_ftp /bin/bash
 
 [what-is-docker]: https://www.docker.com/whatisdocker
 [hub-de-docker]: https://registry.hub.docker.com
+[stevenmartins-docker-transmission]: https://registry.hub.docker.com/u/stevenmartins/docker-transmission/

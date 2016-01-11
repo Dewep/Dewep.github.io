@@ -4,13 +4,31 @@
 
         <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
-        <nav class="site-nav">
-            {% for page in site.pages %}
-                {% if page.title %}
-                    <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                {% endif %}
-            {% endfor %}
-        </nav>
+        <section class="menu">
+
+            <div class="author">
+                Aurélien Maigret
+            </div>
+
+            <div class="site-social">
+                <a href="https://www.linkedin.com/in/aurelienmaigret"><i class="fa fa-linkedin" data-infobulle="Linkedin"></i></a>
+                <a href="http://www.twitter.com/Dewep_net"><i class="fa fa-twitter" data-infobulle="Twitter"></i></a>
+                <a href="/Blog/rss.xml"><i class="fa fa-rss" data-infobulle="RSS du blog"></i></a>
+                <a href="https://github.com/Dewep/"><i class="fa fa-github" data-infobulle="GitHub"></i></a>
+                <a href="http://stackoverflow.com/users/2750793/aurelien-maigret"><i class="fa fa-stack-overflow" data-infobulle="Stack Overflow"></i></a>
+                <a href="http://www.facebook.com/Dewep.net"><i class="fa fa-facebook" data-infobulle="Facebook"></i></a>
+                <a href="https://plus.google.com/100373771398479088953?prsrc=3&amp;rel=author"><i class="fa fa-google-plus" data-infobulle="Google plus"></i></a>
+            </div>
+
+            <nav class="site-nav">
+                {% for page in site.pages %}
+                    {% if page.title %}
+                        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                    {% endif %}
+                {% endfor %}
+            </nav>
+
+        </section>
 
     </div>
 
