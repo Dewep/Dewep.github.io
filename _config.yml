@@ -1,19 +1,43 @@
-# Build
-highlighter: null
-gems:
-  - jekyll-redirect-from
-safe: true
-
-# Permalinks
-permalink: /Blog/:title
-
-# SASS/SCSS
-sass:
-  sass_dir: static/_sass
-  style: compressed
-
-# Site settings
-title: Dewep.net
+title: Maigret Aurélien - Dewep.net
 baseurl: ""
 url: "http://www.dewep.net"
-github_username: Dewep
+github: Dewep
+twitter: Dewep_net
+description: Skies.io Blog
+
+sass:
+    sass_dir: static/_sass
+    style: compressed
+
+tag:
+    layout: "pager"
+    path: "tag"
+    paginate_path: ":num"
+    page_data:
+        title: "Posts tagged &ldquo;{}&rdquo;"
+        subtitle: "Posts related to the tag &ldquo;{}&rdquo;"
+
+timezone: "Europe/Paris"
+markdown: kramdown
+highlighter: pygments
+permalink: /Blog/:year/:month/:day/:title/
+paginate: 10
+paginate_path: ":num"
+
+defaults:
+    -
+        scope:
+            path: ""
+            type: "posts"
+        values:
+            comments: true  # add comments to all blog posts
+    -
+        scope:
+            path: "" # all files
+        values:
+            layout: "default"
+
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - README.md

@@ -1,222 +1,177 @@
-/**
- * Reset some basic elements
- */
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
+header, footer, section, hgroup, aside, nav, article, figure, figcaption, time, dialog {
+    display: block;
+}
+
+* {
+    outline: none;
+}
+
+p, div, body, html {
     margin: 0;
     padding: 0;
 }
 
-
-
-/**
- * Basic styling
- */
-body {
-    font-family: $font-family;
+html {
+    background: $bg-primary-color;
     font-size: $font-size;
-    line-height: $line-height;
-    font-weight: 300;
-    color: $text-color;
-    background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
+    color: $secondary-color;
+    width: 100%;
+    font-family: $font-family;
 }
 
-
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+p {
+    margin: 15px 0;
 }
 
-
-
-/**
- * Images
- */
-img {
-    max-width: 100%;
-    vertical-align: middle;
-}
-
-
-
-/**
- * Figures
- */
-figure > img {
-    display: block;
-}
-
-figcaption {
-    font-size: $small-font-size;
-}
-
-
-
-/**
- * Lists
- */
-ul, ol {
-    margin-left: $spacing-unit;
-}
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
-}
-
-
-
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
-    font-family: $font-family-title;
-    text-shadow: 1px 1px 4px rgba(50,50,50,0.5);
-}
-h2 {
-    margin-top: $spacing-unit;
-    font-weight: 600;
-}
-h3 {
-    margin-top: $spacing-unit / 1.5;
-}
-h4 {
-    margin-top: $spacing-unit / 2;
-}
-h5 {
-    margin-top: $spacing-unit / 2.5;
-}
-h6 {
-    margin-top: $spacing-unit / 3;
-}
-
-
-
-/**
- * Links
- */
 a {
-    color: $brand-color;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -ms-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+}
+a, a:link, a:visited {
+    color: $link-color;
     text-decoration: none;
-
-    &:visited {
-        color: $brand-color;
-    }
-
-    &:hover {
-        color: $text-color;
-        text-decoration: underline;
-    }
+}
+a:hover, a:active, a:focus {
+    color: $link-hover-color;
+    text-decoration: underline;
 }
 
-
-
-/**
- * Blockquotes
- */
-blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
-    padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
-
-    > :last-child {
-        margin-bottom: 0;
-    }
+code, kbd, pre, samp {
+    font-family: $font-family-code;
+    color: $tertiary-color;
 }
-
-
-
-/**
- * Code formatting
- */
-pre,
-code {
-    font-size: 15px;
-    border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: $background-color-code;
-}
-
-code {
-    padding: 1px 5px;
-}
-
 pre {
-    padding: 8px 12px;
-    overflow-x: auto;
-
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
+    display: block;
+    padding: 5px;
+    color: $secondary-color;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: $bg-secondary-color;
+    border: 1px solid $border-primary-color;
+    border-radius: 4px;
+}
+pre code {
+    padding: 0;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 0;
 }
 
-
-
-/**
- * Wrapper
- */
-.wrapper {
-    max-width: -webkit-calc(#{$on-laptop} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$on-laptop} - (#{$spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
-
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$on-laptop} - (#{$spacing-unit}));
-        max-width:         calc(#{$on-laptop} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
+em {
+    font-style: italic;
+}
+em.tag {
+    font-style: normal;
+    font-weight: 700;
+    background: #EEE;
+    border-radius: 2px;
+    padding: 4px 10px;
+    display: inline-block;
+    margin: 4px 3px 2px;
 }
 
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+h1 {
+    font-size: 1.8em;
+    text-align: center;
 }
 
+#header {
+    padding: 55px 0 35px;
+    font-family: $font-family-title;
+    border-top: 5px solid $primary-color;
+    border-bottom: 1px solid $border-primary-color;
 
-
-/**
- * Icons
- */
-.icon {
-
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
+    #logo a {
+        margin: 0;
+        font-size: 31px;
+        color: $primary-color;
+        text-transform: uppercase;
+        font-weight: 900;
+        text-decoration: none;
+        line-height: 0;
+        span {
+            font-size: 12px;
+            margin-left: 20px;
+            color: $secondary-color;
         }
+    }
+
+    #menu {
+        float: right;
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            li {
+                display: inline-block;
+                a {
+                    font-size: 14px;
+                    font-weight: 900;
+                    padding: 15px 0;
+                    border-bottom: 3px solid transparent;
+                    margin: 0px 10px;
+                    font-family: $font-family-title;
+                    text-decoration: none;
+                    color: $secondary-color;
+                }
+            }
+            li.active a, li:hover a {
+                color: $primary-color;
+                border-bottom: 3px solid $primary-color;
+                -webkit-transition: all 0.5s ease 0s;
+                -moz-transition: all 0.5s ease 0s;
+                transition: all 0.5s ease 0s;
+            }
+        }
+    }
+}
+
+.hachures {
+    background: url("/static/images/hachures.png") repeat $bg-header-color;
+    width: 100%;
+}
+
+.container {
+    width: auto;
+    max-width: 1100px;
+    /* min-width: 800px; */
+    margin: 0 auto;
+}
+.container:after, .container:before {
+    content: ".";
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    font-size: 0px;
+    line-height: 0;
+    width: 0px;
+    height: 0px;
+    clear: both;
+}
+
+.page-content {
+    margin-top: 60px;
+}
+
+section.section {
+    padding: 20px 50px;
+    background-color: $bg-secondary-color;
+    border: 1px solid $border-secondary-color;
+    margin-bottom: 30px;
+    header.post-header {
+        margin: 0px 0px 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $border-primary-color;
+    }
+    footer.post-footer {
+        border-top: 3px solid $border-secondary-color;
+        margin-top: 35px;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 90%;
     }
 }

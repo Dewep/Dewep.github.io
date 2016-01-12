@@ -2,50 +2,34 @@
 ---
 @charset "utf-8";
 
-// BASE
-$font-family: Helvetica, Arial, sans-serif;
-$font-family-title: "Trebuchet MS", $font-family;
-$font-size:   16px;
-$small-font-size:  $font-size * 0.875;
-$line-height: 1.5;
+$font-family: "Open Sans", Helvetica, Arial, sans-serif;
+//$font-family-title: "Trebuchet MS", $font-family;
+$font-family-title: 'Lato', sans-serif;
+$font-family-code: 'Source Code Pro', Consolas, "Courier New", monospace;
+$font-size: 16px;
+$font-size-code: 15px;
 
-$spacing-unit:     30px;
+$primary-color: #B9230F;
+$secondary-color: #333333;
+$tertiary-color: #666666;
+$bg-primary-color: #F5F5F5;
+$bg-secondary-color: #FFFAFA;
+$border-primary-color: #CFCFCF;
+$border-secondary-color: #EEEEEE;
 
-$red-color: #B9230F;
-$red-color-border: rgba(185, 35, 15, .2);
-$text-color:       #111;
-$background-color: #f2f2f2;
-$brand-color:      $red-color;//#2a7ae2;
-$black-color-transparent: rgba(15, 15, 15, .2);
+$bg-header-color: $bg-secondary-color;
+$title-color: $primary-color;
+$link-color: $primary-color;
+$link-hover-color: $secondary-color;
 
-$text-color-header: #f2f2f2;
-$background-color-header: #202020;
-$brand-color-header:      #bababa;
-$brand-color-header-logo: #ddd;
+$on-mobile: 600px;
+$on-computer: 1200px;
 
-$background-color-code: #eef;
-
-$grey-color:       #828282;
-$grey-color-border: lighten($grey-color, 35%);
-$grey-color-light: $red-color-border;//lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-$on-palm:          600px;
-$on-laptop:        1200px;
-
-
-
-// Using media queries with like this:
-// @include media-query($palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
         @content;
     }
 }
 
-@import "base", "layout", "syntax-highlighting";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Lato:900|Source+Code+Pro:400,700");
+@import "base", "syntax-highlighting";

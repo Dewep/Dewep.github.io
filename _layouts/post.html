@@ -1,18 +1,53 @@
 ---
 layout: default
 ---
-<div class="post">
-
-    <header class="post-header">
-        <h1 class="post-title">{{ page.title }}</h1>
-        <div class="post-details">
-            <p class="post-meta">{{ page.author }} • {{ page.date | date: "%b %-d, %Y" }}</p>
-            <p class="post-share">Share on Twitter, FB, ...</p>
+<section class="section">
+    <article itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+            <h1 itemprop="name">{{ page.title }}</h1>
+        </header>
+        <div itemprop="description articleBody">
+            {{ content }}
         </div>
-    </header>
-
-    <article class="post-content">
-        {{ content }}
+        <footer class="post-footer">
+            <div>
+                <span class="post-author">
+                    <span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                        <meta content="https://plus.google.com/100373771398479088953" itemprop="url">
+                        Posté par
+                        <a href="https://plus.google.com/100373771398479088953" rel="author">
+                            <span itemprop="name">Aurélien Maigret</span>
+                        </a>
+                    </span>
+                </span>
+                <span class="post-timestamp">
+                    <meta content="{{ page.url | replace: "index.html", "" | prepend: site.url }}" itemprop="url">
+                    le <span itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{% include datetime.html date=page.date %}</span>
+                </span>
+            </div>
+            <div class="post-labels">
+                {% for tag in page.tags %}
+                    <!--<a href="#" rel="tag">--><em class="tag">{{ tag }}</em><!--</a>-->
+                {% endfor %}
+            </div>
+        </footer>
     </article>
+</section>
 
-</div>
+<section class="section">
+    <article class="post-content">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_config = function () {
+                this.page.url = '{{ page.url | replace: "index.html", "" | prepend: site.url }}';
+                this.page.identifier = '{{ page.disqus_identifier }}';
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = '//dewep.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </article>
+</section>
